@@ -3,98 +3,105 @@
   <head>
     <title>Funding Portal</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 36px;
+        margin-top: 0;
+      }
       #city-map {
-        position: relative;
-        width: 800px;
-        height: 600px;
-        background-image: url('/static/city-map.png');
-        background-size: contain;
+        display: flex;
+        flex-wrap: wrap;
       }
       .building {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: #66ccff;
+        width: 100px;
+        height: 100px;
         border: 2px solid #000;
-        border-radius: 50%;
+        border-radius: 5px;
         text-align: center;
-        line-height: 50px;
-        color: #000;
-        font-size: 16px;
+        line-height: 100px;
+        font-size: 36px;
         font-weight: bold;
+        margin: 10px;
         cursor: pointer;
       }
-      .building[data-company-id="1"] {
-        top: 200px;
-        left: 100px;
-      }
-      .building[data-company-id="2"] {
-        top: 350px;
-        left: 300px;
-      }
-      .building[data-company-id="3"] {
-        top: 100px;
-        left: 500px;
-      }
       .company {
-        margin: 20px;
-        padding: 10px;
+        margin-top: 20px;
+      }
+      .company h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 0;
+      }
+      .company p {
+        font-size: 16px;
+      }
+      .company form {
+        margin-top: 20px;
+      }
+      .company form label {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .company form input[type="number"] {
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 5px;
         border: 1px solid #000;
-        border-radius: 1px;
-    }
-  .company h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 0;
-  }
-  .company p {
-    font-size: 16px;
-  }
-  .company form {
-    margin-top: 20px;
-  }
-  .company form label {
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .company form input[type="number"] {
-    font-size: 16px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-  }
-  .company form input[type="submit"] {
-    font-size: 16px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #66ccff;
-    color: #000;
-    cursor: pointer;
-  }
-  .investments {
-    margin-top: 20px;
-  }
-  .investments table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  .investments table th,
-  .investments table td {
-    border: 1px solid #000;
-    padding: 5px;
-  }
-</style>
-</head>
-<body>
-  <h1>Funding Portal</h1>
-  <div id="city-map">
-    <div class="building" data-company-id="1">A</div>
-    <div class="building" data-company-id="2">B</div>
-    <div class="building" data-company-id="3">C</div>
-  </div>
-</body>
+        margin-bottom: 10px;
+      }
+      .company form input[type="submit"] {
+        font-size: 16px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        background-color: #66ccff;
+        color: #000;
+        cursor: pointer;
+      }
+      .investments {
+        margin-top: 20px;
+      }
+      .investments table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .investments table th,
+      .investments table td {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+      .company-details {
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 20px;
+        margin-left: 20px;
+        width: 300px;
+      }
+      .company-details h3 {
+        font-size: 20px;
+        margin-top: 0;
+      }
+      .company-details p {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Funding Portal</h1>
+    <div id="city-map">
+      <div class="building" data-company-id="1">A</div>
+      <div class="building" data-company-id="2">B</div>
+      <div class="building" data-company-id="3">C</div>
+    </div>
+    <div class="company-details">
+      <h3>Company Details</h3>
+      <div class="content"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
 </html>
