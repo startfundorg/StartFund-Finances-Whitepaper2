@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funding Portal</title>
+    <style>
+      .building {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-color: gray;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .company-name {
+        font-weight: bold;
+        text-align: center;
+      }
+      .company-description {
+        margin-top: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="city-map" style="position: relative; width: 800px; height: 400px;">
+      {% for company in companies %}
+        <div class="building" style="left: {{ company.id * 60 }}px; top: {{ company.id * 20 }}px;" data-company-id="{{ company.id }}">
+          <div class="company-name">{{ company.name }}</div>
+          <div class="company-description">{{ company.description }}</div>
+          </div>
+          {% endfor %}
+          </div>
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+          $(document).ready(function() {
+          $('.building').click(function() {
+          var companyId = $(this).data('company-id');
+          window.location.href = '/company/' + companyId;
+          });
+          });
+          </script>
+          
+            </body>
+          </html>
