@@ -3,42 +3,98 @@
   <head>
     <title>Funding Portal</title>
     <style>
+      #city-map {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-image: url('/static/city-map.png');
+        background-size: contain;
+      }
       .building {
         position: absolute;
         width: 50px;
-        height: 100px;
-        background-color: gray;
-        border-radius: 5px;
+        height: 50px;
+        background-color: #66ccff;
+        border: 2px solid #000;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        color: #000;
+        font-size: 16px;
+        font-weight: bold;
         cursor: pointer;
       }
-      .company-name {
-        font-weight: bold;
-        text-align: center;
+      .building[data-company-id="1"] {
+        top: 200px;
+        left: 100px;
       }
-      .company-description {
-        margin-top: 5px;
-        text-align: center;
+      .building[data-company-id="2"] {
+        top: 350px;
+        left: 300px;
       }
-    </style>
-  </head>
-  <body>
-    <div id="city-map" style="position: relative; width: 800px; height: 400px;">
-      {% for company in companies %}
-        <div class="building" style="left: {{ company.id * 60 }}px; top: {{ company.id * 20 }}px;" data-company-id="{{ company.id }}">
-          <div class="company-name">{{ company.name }}</div>
-          <div class="company-description">{{ company.description }}</div>
-          </div>
-          {% endfor %}
-          </div>
-          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          <script>
-          $(document).ready(function() {
-          $('.building').click(function() {
-          var companyId = $(this).data('company-id');
-          window.location.href = '/company/' + companyId;
-          });
-          });
-          </script>
-          
-            </body>
-          </html>
+      .building[data-company-id="3"] {
+        top: 100px;
+        left: 500px;
+      }
+      .company {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 1px;
+    }
+  .company h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  .company p {
+    font-size: 16px;
+  }
+  .company form {
+    margin-top: 20px;
+  }
+  .company form label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .company form input[type="number"] {
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+  }
+  .company form input[type="submit"] {
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #66ccff;
+    color: #000;
+    cursor: pointer;
+  }
+  .investments {
+    margin-top: 20px;
+  }
+  .investments table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .investments table th,
+  .investments table td {
+    border: 1px solid #000;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+  <h1>Funding Portal</h1>
+  <div id="city-map">
+    <div class="building" data-company-id="1">A</div>
+    <div class="building" data-company-id="2">B</div>
+    <div class="building" data-company-id="3">C</div>
+  </div>
+</body>
+</html>
